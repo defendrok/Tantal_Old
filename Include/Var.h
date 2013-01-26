@@ -1,3 +1,6 @@
+#ifndef VAR_H
+#define VAR_H
+
 //	Standart C Null declaration
 # define NULL (void*)0
 
@@ -21,3 +24,5 @@ typedef long long Big;                               	        // 64-bit length
 typedef float	Float;
 typedef double Double;
 typedef long double Triple;	                              	// 80-bit length. Actual properties unspecified.
+
+#endif

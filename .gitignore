@@ -25,3 +25,4 @@ Tantal.kdev4
 .kdev_include_paths
 Test
 nbproject
+./Kernel/HardwareLevel/Var.h

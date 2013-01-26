@@ -1,16 +1,17 @@
 //Include section
-# include "../Include/Var.h"
-# include "../Include/Video.c"
+# include "Var.h"
+# include "Video.c"
+# include "./HardwareLevel/HAL.h"
 
-//
-extern void Main(void);
 //Code section
 void Main(void)
 {
 	//Displaing entrance text
-	ClearScreen(0x48);
-	SetColor(0x48); PrintString("Remastered kernel");
-	PrintCharacter('l');
+	ClearScreen(0x20);
+	SetColor(0x40); PrintString("Setting GDT... \n");
+	
+	HardwareInitialize();
+	PrintString("Maybe GDT is set =)");
 	
 	//Infinite loop
 	for(;;);

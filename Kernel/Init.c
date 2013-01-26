@@ -2,7 +2,9 @@ extern void Main();
 //
 extern void Initialize()
 {
-	//asm volatile (".intel_syntax noprefix");
+	//don't need because of -masm=intel
+	//seems that it is still needed 
+	asm volatile (".intel_syntax noprefix");
 	asm volatile
 	(
 		"cli\n"
@@ -12,6 +14,6 @@ extern void Initialize()
         "mov fs, ax\n"
         "mov gs, ax\n"
 	);
-	//asm volatile (".att_syntax noprefix");
+	asm volatile (".att_syntax noprefix");
 	Main();
 }
