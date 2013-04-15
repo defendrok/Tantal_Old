@@ -10,7 +10,7 @@ jmp	Main				; go to start
 %include "gdt.asm"			; Gdt routines
 %include "Fat12.asm"
 %include "common.asm"
-%include "StandartIO.asm"		; basic i/o routines
+%include "StandartIO16.asm"		; basic i/o routines
 ;*******************************************************
 ;	Data Section
 ;*******************************************************

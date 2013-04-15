@@ -71,7 +71,7 @@ void GDTSetDescriptor(UInt Index, ULong Base, ULong Limit, UChar Access, UChar G
 	if(MaxDescriptors < Index)
 		return;
 	
-	SetMemory((void*)&GDTTable[Index], 0, sizeof(GDTDescriptor));
+	SetMemory((void*)&GDTTable[Index], 0, sizeof(struct GDTDescriptor));
 	
 	GDTTable[Index].BaseLow = Base & 0xffff;
 	GDTTable[Index].BaseMiddle = (Base >> 16) & 0xff;
@@ -86,7 +86,7 @@ Int InitializeGDT(void)
 {
 	//Setting GDTR
 	GDTRegisterData.Base = (UInt)&GDTTable[0];
-	GDTRegisterData.Limit = (sizeof(GDTDescriptor) * MaxDescriptors) - 1;
+	GDTRegisterData.Limit = (sizeof(struct GDTDescriptor) * MaxDescriptors) - 1;
 	
 	GDTSetDescriptor(0, 0, 0, 0, 0);	//Setting Null Descriptor
 	GDTSetDescriptor(1, 0, 0xffffffff, DESC_READWRITE | DESC_EXEC_CODE | DESC_CODEDATA | DESC_MEMORY, GRAND_4K | GRAND_32BIT | GRAND_LIMITHI_MASK);	//Setting Code Descriptor
